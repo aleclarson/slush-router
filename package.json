@@ -1,0 +1,14 @@
+{
+  "name": "slush-router",
+  "version": "1.0.0",
+  "main": "js/Router",
+  "dependencies": {
+    "Type": "aleclarson/Type#2.4.0",
+    "assertValid": "aleclarson/assertValid#1.0.1",
+    "isValid": "aleclarson/isValid#1.0.1",
+    "valido": "aleclarson/valido#1.1.4"
+  },
+  "peerDependencies": {
+    "slush": "^3.0.0"
+  }
+}
