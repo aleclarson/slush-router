@@ -10,7 +10,7 @@ const router = Router()
 
 router.get('users', async (req, res) => {
   // Do your magic.
-  users = await fetchUsers()
+  const users = await fetchUsers()
 
   // Return JSON object, status code, or undefined/null.
   return {users}
@@ -18,15 +18,18 @@ router.get('users', async (req, res) => {
 
 // You can match parts of the URL too!
 router.get('users/:id', async (req, res) => {
-  return {
-    user: await fetchUser(req.query.id)
-  }
+  const user = await fetchUser(req.query.id)
+  return {user}
 })
 
 // Unlock advanced route validation!
 router.post(function() {
   this.match('users/:id')
   this.body = {name: 'string'}
+  this.authorize(req => {
+    // Only requests with the password can create a user.
+    return req.query.token == 'secret'
+  })
   return async function(body, res) {
     await addUser({
       id: this.query.id,
