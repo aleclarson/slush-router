@@ -1,3 +1,4 @@
+### NOTE: This library is not maintained. Please use [yiss](https://npmjs.org/package/yiss) instead.
 
 # slush-router v1.0.0 
 
